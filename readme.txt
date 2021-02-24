@@ -1,10 +1,6 @@
-MCBE-hopper-fix
+##MCBE Hopper Fix
 
-(may be not vanilla)
-when hopper try to pull item entities on it's top,
-it will fetch all the item entities in a specific
-AABB,and it will only try to pull the fist item
-stack,which causes the hopper bug
+(May be not vanilla)
+When a hopper tries to collect item entities on top of it, it will fetch all the item entities in a specific AABB, and it will only try to pull the first item stack, which causes the hopper bug.
 
-this fix modify the code of pulling item entities,
-change select first one to a random one.
+This fix modifies the code of collecting item entities, and selects a random item entity instead of the first one.
