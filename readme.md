@@ -1,4 +1,4 @@
-## MCBE Hopper Fix - 1.16.201
+## MCBE Hopper Fix - 1.16.40
 
 This is not vanilla
 
@@ -6,6 +6,6 @@ When a hopper tries to collect item entities on top of it, it will fetch all the
 
 This fix modifies the code of collecting item entities, and selects a random item entity instead of the first one.
 
-## how to use
+## How to use
 This a dll mod, you need to inject it into BDS
 
