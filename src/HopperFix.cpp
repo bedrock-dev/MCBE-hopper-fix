@@ -13,6 +13,19 @@ namespace {
         return rand() % size;
     }
 }
+THook(
+        gsl::span<gsl::not_null<void *>>*,
+        MSSYM_MD5_21a49b5175e9c00856ce77825b121141,
+        void *bs,void *a2,uint64_t type, void * a4) {
+    
+    if (type != ITEM_ENTITY)return original(bs, a2, type, a4);
+    auto list = original(bs, a2, type, a4);
+    if (list->size() < 2)return list;
+    auto random = getRand(list->size());
+    std::swap(list->operator[](0), list->operator[](random));
+    return list;
+}
+
 
 //THook(
 //        void*,
@@ -27,18 +40,3 @@ namespace {
 
 
 //fix hopper
-THook(
-
-        gsl::span<gsl::not_null<void *>>*,
-        MSSYM_MD5_21a49b5175e9c00856ce77825b121141,
-        void *bs,
-        void *a2,
-        uint64_t type, void * a4
-) {
-    if (type != ITEM_ENTITY)return original(bs, a2, type, a4);
-    auto list = original(bs, a2, type, a4);
-    if (list->size() < 2)return list;
-    auto random = getRand(list->size());
-    std::swap(list->operator[](0), list->operator[](random));
-    return list;
-}
