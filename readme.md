@@ -1,6 +1,6 @@
 ## MCBE Hopper Fix - 1.16.201
 
-(May be not vanilla)
+This is not vanilla
 
 When a hopper tries to collect item entities on top of it, it will fetch all the item entities in a specific AABB, and it will only try to pull the first item stack, which causes the hopper bug.
 
