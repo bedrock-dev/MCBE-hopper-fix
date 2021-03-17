@@ -3,7 +3,9 @@
 #include "Windows.h"
 #include "detours.h"
 #include "detver.h"
+#include "SymHook.h"
 #include <iostream>
+
 
 using VA = unsigned __int64;
 

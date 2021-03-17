@@ -14,21 +14,8 @@ namespace {
     }
 }
 
-//THook(
-//        void*,
-//        MSSYM_B2QUA9getItemAtB1AA6HopperB2AAE17IEAAPEAVItemActorB2AAE15AEAVBlockSourceB2AAA8AEBVVec3B3AAAA1Z,
-//        void *hopper, void *blockSource, void * position
-//) {
-//    hopperWorking = true;
-//    auto *item = original(hopper, blockSource, position);
-//    hopperWorking = false;
-//    return item;
-//}
 
-
-//fix hopper
 THook(
-
         gsl::span<gsl::not_null<void *>>*,
         MSSYM_MD5_21a49b5175e9c00856ce77825b121141,
         void *bs,

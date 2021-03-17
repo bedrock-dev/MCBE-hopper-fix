@@ -7,7 +7,6 @@ void mod_init() {
 
 void mod_exit() {
 
-
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule,
