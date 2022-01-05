@@ -11,4 +11,8 @@ endif ()
 #上面不用管
 include_directories(${PROJECT_NAME} lib hook src gsl)
 add_library(${PROJECT_NAME} SHARED dllmain.cpp src/HopperFix.cpp) #这里是.cpp文件
-target_link_libraries(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib/detours.lib)
+target_link_libraries(
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib/detours.lib
+
+)
