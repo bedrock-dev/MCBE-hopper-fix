@@ -1,3 +1,7 @@
-# Project exclude paths
-/cmake-build-debug/
-/cmake-build-release/
+.vs/
+**/x64/
+**/*.user
+**/.vscode/
+
+**/bedrock_server_api.lib
+**/bedrock_server_var.lib
