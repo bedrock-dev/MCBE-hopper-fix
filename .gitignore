@@ -4,3 +4,5 @@
 .idea
 .idea/deployment.xml
 .idea/modules.xml
+.vscode
+build
