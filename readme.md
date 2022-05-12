@@ -1,6 +1,6 @@
-## MCBE Hopper Fix - 1.16.40
+## MCBE Hopper Fix
 
-**This is not vanilla**
+**This is more vanilla than MOJANG**
 
 When a hopper tries to collect item entities on top of it, it will fetch all the item entities in a specific AABB, and it will only try to pull the first item stack, which causes the hopper bug.
 
@@ -8,4 +8,3 @@ This fix modifies the code of collecting item entities, and selects a random ite
 
 ## How to use
 This a dll mod, you need to inject it into BDS
-
