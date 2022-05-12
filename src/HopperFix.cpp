@@ -37,13 +37,13 @@ THook(gsl::span<gsl::not_null<Actor*>>*,
     auto volume =
         abs((aABB->max.x - aABB->min.x) * (aABB->max.y - aABB->min.y) *
             (aABB->max.z - aABB->min.z));
-    if (type != ITEM_ENTITY || volume < 0.9994f ||
-        volume > 1.000001f)  // isn't hopper or hopper_minecart
+    if (type != ITEM_ENTITY || volume < 0.99f ||
+        volume > 1.01f)  // isn't hopper or hopper_minecart
         return original(blockSource, a2, type, aABB);
 
-    if (abs(frac(aABB->min.y) - 0.625f) < 0.0001f &&
-        abs(frac((aABB->max.x + aABB->min.x) / 2.0f) - 0.5f) < 0.0001f &&
-        abs(frac((aABB->max.z + aABB->min.z) / 2.0f) - 0.5f) < 0.0001f) {
+    if (abs(frac(aABB->min.y) - 0.625f) < 0.001f &&
+        abs(frac((aABB->max.x + aABB->min.x) / 2.0f) - 0.5f) < 0.001f &&
+        abs(frac((aABB->max.z + aABB->min.z) / 2.0f) - 0.5f) < 0.001f) {
         // is hopper
         aABB->max.y += 0.375f;
     }
@@ -78,25 +78,25 @@ THook(gsl::span<gsl::not_null<Actor*>>*,
             *((int64_t*)blockSource + 19);  // clear list
 
         for (auto* i : suckList) {
-            float** v39 = (float**)mEntityList[1];
-            int64_t v52;
-            *(int64_t*)&v52 = (int64_t)i;
-            *v39 = (float*)i;
+            float** end = (float**)mEntityList[1];
+            // int64_t v52;
+            // *(int64_t*)&v52 = (int64_t)i;
+            *end = (float*)i;
             mEntityList[1] += 8i64;
         }
-        auto v44 = (int64_t*)*mEntityList;
-        auto v45 = (int64_t*)mEntityList[1];
-        auto v46 = (int64_t*)*mEntityList;
+        auto begin = (int64_t*)*mEntityList;
+        auto end = (int64_t*)mEntityList[1];
+        auto __x = (int64_t*)*mEntityList;
         int64_t* result;
         result = (int64_t*)a2;
-        if ((int64_t*)*mEntityList == v45) {
-        LABEL_69:
-            auto v27 = v45 - v44;
-            *result = v27;
+        if ((int64_t*)*mEntityList == end) {
+        RES:
+            auto l = end - begin;
+            *result = l;
         } else {
-            while (*v46) {
-                if (++v46 == v45)
-                    goto LABEL_69;
+            while (*__x) {
+                if (++__x == end)
+                    goto RES;
             }
         }
         // std::cout << "hooked" << std::endl;
